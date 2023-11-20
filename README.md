@@ -29,7 +29,7 @@
 
 ## 📘Package
 
-## 요구사항
+## 요구사항 정의서
 * [LFA 요구사항 정의서](https://docs.google.com/spreadsheets/d/1iApoPRtfqVF37162u12uF8QEU-VwkYGCxOrMJx8tWr8/edit#gid=0)
 
 ## 📗Architecture
