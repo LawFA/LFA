@@ -29,6 +29,9 @@
 
 ## 📘Package
 
+## 요구사항
+* [LFA 요구사항 정의서](https://docs.google.com/spreadsheets/d/1iApoPRtfqVF37162u12uF8QEU-VwkYGCxOrMJx8tWr8/edit#gid=0)
+
 ## 📗Architecture
 
 ## 📙DB ERD
@@ -38,8 +41,8 @@
 ## 📚사용된 도구
 
 ## 💻개발자
-* [김강현]()
-* [손지민]()
-* [장유정]()
+* [김강현](https://github.com/keem-hyun)
+* [손지민](https://github.com/s0nnyday)
+* [장유정](https://github.com/JangYouJung)
 
 ## 🏢회고 및 피드백
