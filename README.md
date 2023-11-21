@@ -22,10 +22,12 @@
 ## 🌎Team Role
 ### 김강현
 * iOS(Swift)
+* Pigma
 ### 손지민
 * Server(Spring Boot)
 ### 장유정
 * Server(Spring Boot)
+* ERD
 
 ## 📘Package
 
