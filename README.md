@@ -25,9 +25,10 @@
 * Pigma
 ### 손지민
 * Server(Spring Boot)
+* DB 설계 및 구축
 ### 장유정
 * Server(Spring Boot)
-* ERD
+* DB 설계 및 구축
 
 ## 📘Package
 
