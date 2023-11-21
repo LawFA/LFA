@@ -20,13 +20,13 @@
 ## 📑WorkFlow
 
 ## 🌎Team Role
-### 김강현
+### 🏄‍♂️김강현
 * iOS(Swift)
 * Pigma
-### 손지민
+### 🏄‍♂️손지민
 * Server(Spring Boot)
 * DB 설계 및 구축
-### 장유정
+### 🏄‍♂️장유정
 * Server(Spring Boot)
 * DB 설계 및 구축
 
