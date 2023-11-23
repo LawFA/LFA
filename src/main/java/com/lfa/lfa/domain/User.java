@@ -15,6 +15,16 @@ public class User {
     private Long id;
 
     private String username;
+    private String password;
     private String email;
+    private String phone;
 
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public Object getUsername() {
+        return this.username;
+    }
 }

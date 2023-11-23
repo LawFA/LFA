@@ -22,11 +22,28 @@ public class UserService {
         return userRepository.findById(userId);
     }
 
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
     public User saveUser(User user) {
         return userRepository.save(user);
     }
 
     public void deleteUser(Long userId) {
         userRepository.deleteById(userId);
+    }
+
+    public User authenticateUser(String email, String password) {
+        // 이메일을 기반으로 사용자를 데이터베이스에서 조회
+        User user = userRepository.findByEmail(email);
+
+        if (user != null && password.equals(user.getPassword())) {
+            // 비밀번호 일치
+            return user;
+        } else {
+            // 사용자가 없거나 비밀번호 불일치
+            return null;
+        }
     }
 }
