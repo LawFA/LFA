@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
@@ -15,7 +16,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByUsername(String username);
 
     // Find users by email
-    User findByEmail(String email);
+    Optional<User> findByEmail(String email);
 
     // Find users by username and email
     List<User> findByUsernameAndEmail(String username, String email);
@@ -24,6 +25,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByUsernameContainingIgnoreCase(String partialUsername);
 
     // Example of a native query
-    @Query(value = "SELECT * FROM User u WHERE u.username LIKE %:partialUsername%", nativeQuery = true)
+    @Query(value = "SELECT * FROM User u WHERE u.useremail LIKE %:partialUsername%", nativeQuery = true)
     List<User> findByPartialUsernameNativeQuery(@Param("partialUsername") String partialUsername);
 }
