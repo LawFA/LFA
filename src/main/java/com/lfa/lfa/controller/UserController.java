@@ -1,70 +1,56 @@
 package com.lfa.lfa.controller;
 
+import com.lfa.lfa.Request.UserLoginRequest;
 import com.lfa.lfa.domain.User;
 import com.lfa.lfa.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 
-@Controller
-@RequestMapping("/user")
+@RestController
+@RequestMapping("/api/user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @GetMapping("/login")
-    public String showLoginPage() {
-        return "login";
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @PostMapping("/login")
-    public String login(String email, String password, Model model, HttpSession session) {
+    public ResponseEntity<?> login(@RequestBody UserLoginRequest userLoginRequest) {
+        String email = userLoginRequest.getEmail();
+        String password = userLoginRequest.getPassword();
+
+        System.out.println("email: "+ email+" pw: "+password);
 
         User authenticatedUser = userService.authenticateUser(email, password);
 
         if (authenticatedUser != null) {
-            // 로그인 성공
-            session.setAttribute("user", authenticatedUser);
-            return "redirect:/user/home";
+            // Return user information or a token in the response
+            return ResponseEntity.ok(authenticatedUser);
         } else {
-            // 로그인 실패
-            model.addAttribute("error", "Invalid email or password");
-            return "login";
-
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
         }
     }
 
     @GetMapping("/home")
-    public String home(HttpSession session, Model model) {
-        // 세션에서 사용자 정보를 가져옵니다.
+    public ResponseEntity<?> home(HttpSession session) {
         User user = (User) session.getAttribute("user");
 
-        // 세션에 사용자 정보가 없으면 로그인 페이지로 리다이렉트합니다.
         if (user == null) {
-            return "redirect:/user/login";
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not logged in");
         }
 
-        // 사용자 정보를 모델에 추가하여 화면에 표시합니다.
-        model.addAttribute("username", user.getUsername());
-        return "home";
+        // Return user information
+        return ResponseEntity.ok(user);
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session) {
-        // 세션에서 사용자 정보를 제거하고 로그인 페이지로 리다이렉트합니다.
+    public ResponseEntity<?> logout(HttpSession session) {
         session.removeAttribute("user");
-        return "redirect:/user/login";
+        return ResponseEntity.ok("Logged out successfully");
     }
 }

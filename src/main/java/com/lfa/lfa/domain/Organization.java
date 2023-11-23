@@ -1,27 +1,29 @@
 package com.lfa.lfa.domain;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table
-public class User {
-
+@Data
+public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
+    private String organization_name;
     private String password;
+    private String category;
     private String email;
-    private String phone;
 
-    public String getPassword() {
-        return password;
+    public Object getOrganizationName() {
+        return this.organization_name;
     }
 
-    // Getters and setters...
+    public String getPassword() {
+        return this.password;
+    }
 }
