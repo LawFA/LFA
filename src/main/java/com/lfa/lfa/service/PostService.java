@@ -28,6 +28,10 @@ public class PostService {
         return postRepository.findByCategoryId(categoryId);
     }
 
+    public List<Post> getPostsByMemberId(Long memberId) {
+        return postRepository.findByMemberId(memberId);
+    }
+
     public Post addPost(Post post) {
         post.setCreatedAt(LocalDateTime.now());
         return postRepository.save(post);
