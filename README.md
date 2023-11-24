@@ -27,9 +27,11 @@
 ### 🏄‍♂️손지민
 * Server(Spring Boot)
 * DB 설계 및 구축
+* 게시글 기능 구현
 ### 🏄‍♂️장유정
 * Server(Spring Boot)
 * DB 설계 및 구축
+* 로그인 기능 구현
 
 ## 📘Package
 
