@@ -54,3 +54,4 @@
 * [장유정](https://github.com/JangYouJung)
 
 ## 🏢회고 및 피드백
+* [손지민 회고](https://velog.io/@s0nnyday/%ED%95%B4%EC%BB%A4%ED%86%A4%EC%9B%90%EB%8D%B0%EC%9D%B4%ED%94%84%EB%A1%9C%EB%8D%95%ED%8A%B8-%EC%B1%8C%EB%A6%B0%EC%A7%80-%ED%9A%8C%EA%B3%A0)
