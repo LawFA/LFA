@@ -39,6 +39,7 @@
 ## 📗Architecture
 
 ## 📙DB ERD
+* [ERD Cloud](https://github.com/LawFA/LFA_Server/assets/80906691/a83ad176-37ff-4a1f-8ff8-5aa561478211)
 
 ## 📕배포
 
