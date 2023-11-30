@@ -23,5 +23,7 @@ public class User {
         return password;
     }
 
+    public Object getUsername() { return username;}
+
     // Getters and setters...
 }

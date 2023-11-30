@@ -23,4 +23,10 @@ public class Post {
 
     // 추가된 작성일 필드
     private LocalDateTime createdAt;
+
+    public void setCreatedAt(LocalDateTime now) {
+    }
+
+    public void setId(Long postId) {
+    }
 }

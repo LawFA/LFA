@@ -25,6 +25,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByUsernameContainingIgnoreCase(String partialUsername);
 
     // Example of a native query
-    @Query(value = "SELECT * FROM User u WHERE u.useremail LIKE %:partialUsername%", nativeQuery = true)
+    @Query(value = "SELECT * FROM User u WHERE u.email LIKE %:partialUsername%", nativeQuery = true)
     List<User> findByPartialUsernameNativeQuery(@Param("partialUsername") String partialUsername);
+
+    boolean existsByUsername(Object username);
 }
