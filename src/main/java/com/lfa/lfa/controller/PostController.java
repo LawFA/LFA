@@ -31,6 +31,11 @@ public class PostController {
         return postService.getPostsByCategoryId(categoryId);
     }
 
+    @GetMapping("/member/{memberId}")
+    public List<Post> getPostsByMemberId(@PathVariable Long memberId) {
+        return postService.getPostsByMemberId(memberId);
+    }
+
     @PostMapping
     public Post addPost(@RequestBody Post post) {
         return postService.addPost(post);
