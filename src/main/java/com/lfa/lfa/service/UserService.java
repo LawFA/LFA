@@ -36,16 +36,23 @@ public class UserService {
 
     public User authenticateUser(String email, String password) {
         // 이메일을 기반으로 사용자를 데이터베이스에서 조회
-        User user = userRepository.findByEmail(email).get();
+        Optional<User> user_check = userRepository.findByEmail(email);
 
-        System.out.println(user);
-
-        if (user != null && password.equals(user.getPassword())) {
-            // 비밀번호 일치
-            return user;
+        User user;
+        if (user_check.isPresent()) {
+            user = user_check.get();
+            // Now you can safely use the 'user' object.
+            System.out.println(user);
+            if (user != null && password.equals(user.getPassword())) {
+                // 비밀번호 일치
+                return user;
+            } else {
+                // 사용자가 없거나 비밀번호 불일치
+                return null;
+            }
         } else {
-            // 사용자가 없거나 비밀번호 불일치
             return null;
         }
+
     }
 }
